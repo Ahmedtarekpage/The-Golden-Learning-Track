@@ -4,6 +4,7 @@
 
 
 ![Logo](https://i.ibb.co/w6kBj8B/Studying-Summary-For-UDACITY-Nanodegrees.png)
+
 I'm creating a summary of the UDACITY Nanodegrees I'm studying for them to use as a reference after that, and you may also.
 
 
