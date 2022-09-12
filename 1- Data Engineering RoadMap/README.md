@@ -30,4 +30,4 @@ You must be familiar with using a computer, and prior coding experience is prefe
 This is only to inform you that this is only my Studying Progress Notes So For Enrolling the Full Original Professional Course You Can find it Below : 
 - [@UDACITY Programming For Data Science Nanodegree](https://www.github.com/octokatherine)
 
-Note → This is Not Sponsered by **UDACITY** it's Only My Efforts For Summarizing WHat I Studied before even From UDACITY or From an External Sourcr 
+Note → This is Not Sponsered by **UDACITY** it's Only My Efforts For Summarizing WHat I Studied before even From UDACITY or From an External Source
