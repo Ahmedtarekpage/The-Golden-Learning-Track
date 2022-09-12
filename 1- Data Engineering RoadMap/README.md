@@ -1,7 +1,7 @@
 
 # Programming For Data Science 👨‍💻
 
-![alt text](https://i.ibb.co/MBYMYg8/Programming-For-Data-Science-1.png)
+![alt text](https://i.ibb.co/2YDnKF6/Programming-For-Data-Science-2.png)
 
 
 ## Acknowledgements 📕
