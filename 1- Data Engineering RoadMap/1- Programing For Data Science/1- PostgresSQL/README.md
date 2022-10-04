@@ -50,7 +50,7 @@ The key to SQL is understanding statements. A few statements include:
 
 - DROP TABLE → is a statement that removes a table in a database.
 
-## SELECT, WHERE,ORDER BY, LIMIT
+### SELECT, WHERE,ORDER BY, LIMIT
 - **The SELECT statement →** is used to select data from a database. The data returned is stored in a result table, called the result-set.   
 
 - **LIMIT →**  to select a limited number of records
@@ -139,4 +139,34 @@ FROM orders;
 
 ```
 
+### Group By 
+![alt text](https://i.ibb.co/dQhrRQQ/GROUP-BY-avg.jpg)
+ - [Check this Article](https://www.programiz.com/sql/group-by)
+ 
+ #### Example
+``` sql
+SELECT a.name, MIN(total_amt_usd) smallest_order
+FROM accounts a
+JOIN orders o
+ON a.id = o.account_id
+GROUP BY a.name
+ORDER BY smallest_order;
 
+
+```
+
+``` sql
+SELECT r.name, w.channel, COUNT(*) num_events
+FROM accounts a
+JOIN web_events w
+ON a.id = w.account_id
+JOIN sales_reps s
+ON s.id = a.sales_rep_id
+JOIN region r
+ON r.id = s.region_id
+GROUP BY r.name, w.channel
+ORDER BY num_events DESC;
+
+
+
+```
