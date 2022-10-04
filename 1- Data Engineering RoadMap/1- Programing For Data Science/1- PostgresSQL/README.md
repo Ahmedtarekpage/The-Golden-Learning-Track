@@ -170,3 +170,84 @@ ORDER BY num_events DESC;
 
 
 ```
+### DISTINCT
+The SQL DISTINCT keyword is used in conjunction with the SELECT statement to eliminate all the duplicate records and fetching only unique records.
+
+There may be a situation when you have multiple duplicate records in a table. While fetching such records, it makes more sense to fetch only those unique records instead of fetching duplicate records.
+ - [Check this Article](https://www.tutorialspoint.com/sql/sql-distinct-keyword.htm)
+
+# Subqueries Temporary Tables
+Both subqueries and table expressions are methods for being able to write a query that creates a table, and then write a query that interacts with this new one  
+### Example 1
+``` sql
+SELECT AVG(standard_qty) avg_std, AVG(gloss_qty) avg_gls, AVG(poster_qty) avg_pst
+FROM orders
+WHERE DATE_TRUNC('month', occurred_at) = 
+     (SELECT DATE_TRUNC('month', MIN(occurred_at)) FROM orders);
+
+SELECT SUM(total_amt_usd)
+FROM orders
+WHERE DATE_TRUNC('month', occurred_at) = 
+      (SELECT DATE_TRUNC('month', MIN(occurred_at)) FROM orders);
+
+
+``` 
+### Example 2
+``` sql
+SELECT t3.rep_name, t3.region_name, t3.total_amt
+FROM(SELECT region_name, MAX(total_amt) total_amt
+        FROM(SELECT s.name rep_name, r.name region_name, SUM(o.total_amt_usd) total_amt
+                FROM sales_reps s
+                JOIN accounts a
+                ON a.sales_rep_id = s.id
+                JOIN orders o
+                ON o.account_id = a.id
+                JOIN region r
+                ON r.id = s.region_id
+                GROUP BY 1, 2) t1
+        GROUP BY 1) t2
+JOIN (SELECT s.name rep_name, r.name region_name, SUM(o.total_amt_usd) total_amt
+        FROM sales_reps s
+        JOIN accounts a
+        ON a.sales_rep_id = s.id
+        JOIN orders o
+        ON o.account_id = a.id
+        JOIN region r
+        ON r.id = s.region_id
+        GROUP BY 1,2
+        ORDER BY 3 DESC) t3
+ON t3.region_name = t2.region_name AND t3.total_amt = t2.total_amt;
+
+
+``` 
+
+### Example 3
+- [Having is the same as WHERE but with AGGREGATION]
+
+
+``` sql
+SELECT r.name, COUNT(o.total) total_orders
+FROM sales_reps s
+JOIN accounts a
+ON a.sales_rep_id = s.id
+JOIN orders o
+ON o.account_id = a.id
+JOIN region r
+ON r.id = s.region_id
+GROUP BY r.name
+HAVING SUM(o.total_amt_usd) = (
+         SELECT MAX(total_amt)
+         FROM (SELECT r.name region_name, SUM(o.total_amt_usd) total_amt
+                 FROM sales_reps s
+                 JOIN accounts a
+                 ON a.sales_rep_id = s.id
+                 JOIN orders o
+                 ON o.account_id = a.id
+                 JOIN region r
+                 ON r.id = s.region_id
+                 GROUP BY r.name) sub);
+
+
+``` 
+
+
