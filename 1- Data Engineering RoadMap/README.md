@@ -1,7 +1,7 @@
 
 # Data Engineering RoadMap👨‍💻
 
-![alt text](https://i.ibb.co/5cSWLrL/4401280.jpg)
+![alt text](https://i.ibb.co/P5mW4r0/4401280.jpg)
 
 
 ## Acknowledgements 📕
