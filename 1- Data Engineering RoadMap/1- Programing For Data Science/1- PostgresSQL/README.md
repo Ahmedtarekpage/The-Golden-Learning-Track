@@ -327,7 +327,74 @@ ON a.id = o.account_id
 WHERE o.total IS NULL;
 ``` 
 
+# Window Function 
+In SQL, window functions operate on a set of rows called a window frame. They return a single value for each row from the underlying query.
+### What is the differance between Window Func & Aggregation
 
+ - [Check this Article](https://learnsql.com/blog/window-functions-vs-aggregate-functions/)
+#### Example 
+``` sql
+SELECT standard_amt_usd,
+       SUM(standard_amt_usd) OVER (ORDER BY occurred_at) AS running_total
+FROM orders
+``` 
+
+### RANK()
+the RANK() function as it adds the number of repeated rows to the repeated rank to calculate the rank of the next row. 
+ - [Check this Article](https://www.geeksforgeeks.org/rank-function-in-sql-server/)
+ #### Example
+ ``` sql
+SELECT id,
+       account_id,
+       total,
+       RANK() OVER (PARTITION BY account_id ORDER BY total DESC) AS total_rank
+FROM orders
+``` 
+### Aliases for Multiple Window Functions
+ ``` sql
+SELECT id,
+       account_id,
+       DATE_TRUNC('year',occurred_at) AS year,
+       DENSE_RANK() OVER account_year_window AS dense_rank,
+       total_amt_usd,
+       SUM(total_amt_usd) OVER account_year_window AS sum_total_amt_usd,
+       COUNT(total_amt_usd) OVER account_year_window AS count_total_amt_usd,
+       AVG(total_amt_usd) OVER account_year_window AS avg_total_amt_usd,
+       MIN(total_amt_usd) OVER account_year_window AS min_total_amt_usd,
+       MAX(total_amt_usd) OVER account_year_window AS max_total_amt_usd
+FROM orders 
+WINDOW account_year_window AS (PARTITION BY account_id ORDER BY DATE_TRUNC('year',occurred_at))
+
+``` 
+### Comparing a Row to a Previous Row
+ ``` sql
+SELECT occurred_at,
+       total_amt_usd,
+       LEAD(total_amt_usd) OVER (ORDER BY occurred_at) AS lead,
+       LEAD(total_amt_usd) OVER (ORDER BY occurred_at) - total_amt_usd AS lead_difference
+FROM (
+SELECT occurred_at,
+       SUM(total_amt_usd) AS total_amt_usd
+  FROM orders 
+ GROUP BY 1
+) sub
+
+``` 
+### NTILE()
+ it Divide rows into n groups
+
+  - [Check this Article](https://www.geeksforgeeks.org/ntile-function-in-sql-server/)
+
+# Thanks For Reading 
+ #### Thanks for Reading that and Remember it's only a Summary  
+ #### that you can use for Revision or for follow it as a RoadMap
+
+ ## 🚀 About Me
+[![MIT License](https://img.shields.io/badge/LinkedIn-Ahmedtarekpage-blue)](https://www.linkedin.com/in/ahmedtarekpage)
+
+I am Ahmed Tarek a Computer Software Engineer 💻 worked with a technical manager at (Waymo, Google) , found a bug on a unicorn Company, and had online courses with the biggest platform in the middle east(ALmentor.NET). I also came in first place in the robotics world cup, robocup.
+
+I have 5 years of experience as aSOftware Engineer and Tuto I can help you as a Python developer, data analyst, and robotics engineer. I have five years of experience and have assisted businesses in making 10,000 $ per month, depending on the analytics used.
 
 ![Thanks](https://i.ibb.co/DbXkKy5/Thanks-For-Reading-BY-Ahmed-Tarek.jpg)
 
