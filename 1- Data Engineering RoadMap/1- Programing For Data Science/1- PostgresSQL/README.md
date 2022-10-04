@@ -387,7 +387,7 @@ SELECT occurred_at,
 
 # Thanks For Reading 
  #### Thanks for Reading that and Remember it's only a Summary  
- #### that you can use for Revision or for follow it as a RoadMap
+ #### that you can use for Revision or for following it as a RoadMap
 
  ## 🚀 About Me
 [![MIT License](https://img.shields.io/badge/LinkedIn-Ahmedtarekpage-blue)](https://www.linkedin.com/in/ahmedtarekpage)
