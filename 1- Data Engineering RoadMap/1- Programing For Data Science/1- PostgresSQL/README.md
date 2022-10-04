@@ -1,4 +1,5 @@
 
+
 # PostgresSQL
 ![alt text](https://i.ibb.co/L8pKkbH/Postgres-SQL.png)
 
@@ -326,4 +327,7 @@ ON a.id = o.account_id
 WHERE o.total IS NULL;
 ``` 
 
+
+
+![Thanks](https://i.ibb.co/DbXkKy5/Thanks-For-Reading-BY-Ahmed-Tarek.jpg)
 
