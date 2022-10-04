@@ -49,7 +49,7 @@ The key to SQL is understanding statements. A few statements include:
 - CREATE TABLE → is a statement that creates a new table in a database.  
 
 - DROP TABLE → is a statement that removes a table in a database.
-
+# SQL Basics
 ### SELECT, WHERE,ORDER BY, LIMIT
 - **The SELECT statement →** is used to select data from a database. The data returned is stored in a result table, called the result-set.   
 
@@ -57,7 +57,7 @@ The key to SQL is understanding statements. A few statements include:
 
 - **ORDER BY →** used to sort the result-set in ascending or descending order. The ORDER BY keyword sorts the records in ascending order by default.  
 
-- **WHERE →** he WHERE clause is used to filter records. It is used to extract only those records that fulfill a specified condition.  
+- **WHERE →** WHERE clause is used to filter records. It is used to extract only those records that fulfill a specified condition.  
 
 ### Code Example
 
@@ -82,7 +82,7 @@ LIMIT 10;
 
 ```
 
-## JOINS
+# JOINS
 ![alt text](https://i.ibb.co/3TDKW8T/SQL-Joins-svg.png)
  - [Check this Article](https://www.geeksforgeeks.org/sql-join-set-1-inner-left-right-and-full-joins/)
 ### Code Example :-
@@ -113,7 +113,7 @@ ON o.account_id = a.id;
 
 ```
 
-## Aggregation
+# Aggregation
 An aggregate function in SQL performs a calculation on multiple values and returns a single value  
 SELECT SUM(poster_qty) AS total_poster_sales
 FROM orders;
@@ -139,7 +139,7 @@ FROM orders;
 
 ```
 
-## Group By 
+### Group By 
 ![alt text](https://i.ibb.co/dQhrRQQ/GROUP-BY-avg.jpg)
  - [Check this Article](https://www.programiz.com/sql/group-by)
  
