@@ -139,7 +139,7 @@ FROM orders;
 
 ```
 
-### Group By 
+## Group By 
 ![alt text](https://i.ibb.co/dQhrRQQ/GROUP-BY-avg.jpg)
  - [Check this Article](https://www.programiz.com/sql/group-by)
  
