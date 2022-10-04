@@ -39,11 +39,30 @@ An entity relationship diagram (ERD) is a common way to view data in a database.
 
 
 # Lets start writing SQL Code 
-![alt text](https://i.ibb.co/BrbBmnH/carbon.png)
+![alt text](https://i.ibb.co/BrbBmnH/carbon.png)  
 
 
 
 
+The key to SQL is understanding statements. A few statements include:
 
+- CREATE TABLE → is a statement that creates a new table in a database.  
+
+- DROP TABLE → is a statement that removes a table in a database.
+
+## SELECT 
+- The SELECT statement is the common statement used by analysts, and you will be learning all about them throughout this course!
+
+### Code Example
+
+selecting column from table
+``` sql
+  SELECT column
+  FROM table 
+```
+
+
+ 
+    
 
 
