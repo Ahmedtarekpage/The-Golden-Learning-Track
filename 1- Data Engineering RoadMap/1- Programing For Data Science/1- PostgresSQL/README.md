@@ -82,7 +82,61 @@ LIMIT 10;
 
 ```
 
- 
-    
+## JOINS
+![alt text](https://i.ibb.co/3TDKW8T/SQL-Joins-svg.png)
+ - [Check this Article](https://www.geeksforgeeks.org/sql-join-set-1-inner-left-right-and-full-joins/)
+### Code Example :-
+``` sql
+SELECT orders.*, accounts.*
+FROM accounts
+JOIN orders
+ON accounts.id = orders.account_id;
+```
+
+## Primary Key V.s Foriegn Key 
+![alt text](https://i.ibb.co/9qcq0NL/Difference-Between-Primary-Key-and-Foreign-Key-thumbnail.webp)
+### Look at the below Image and take Care of Arrow's Shape 
+![alt text](https://i.ibb.co/CJdG5Mc/Data-model-feat.png)
+
+## Alias 
+SQL aliases are used to give a table, or a column in a table, a temporary name
+``` sql
+SELECT r.name region, a.name account, 
+           o.total_amt_usd/(o.total + 0.01) unit_price
+FROM region r
+JOIN sales_reps s
+ON s.region_id = r.id
+JOIN accounts a
+ON a.sales_rep_id = s.id
+JOIN orders o
+ON o.account_id = a.id;
+
+```
+
+## Aggregation
+An aggregate function in SQL performs a calculation on multiple values and returns a single value  
+SELECT SUM(poster_qty) AS total_poster_sales
+FROM orders;
+### Sum
+``` sql
+SELECT SUM(standard_amt_usd)/SUM(standard_qty) AS standard_price_per_unit
+FROM orders;
+
+```
+### MIN, MAX
+``` sql
+SELECT MAX(occurred_at)
+FROM web_events;
+
+```
+### AVG
+``` sql
+SELECT AVG(standard_qty) mean_standard, AVG(gloss_qty) mean_gloss, 
+              AVG(poster_qty) mean_poster, AVG(standard_amt_usd) mean_standard_usd, 
+              AVG(gloss_amt_usd) mean_gloss_usd, AVG(poster_amt_usd) mean_poster_usd
+FROM orders;
+
+
+```
 
 
