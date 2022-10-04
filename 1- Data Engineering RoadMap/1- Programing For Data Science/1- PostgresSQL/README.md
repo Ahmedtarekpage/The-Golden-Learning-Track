@@ -50,16 +50,27 @@ The key to SQL is understanding statements. A few statements include:
 
 - DROP TABLE → is a statement that removes a table in a database.
 
-## SELECT 
-- The SELECT statement is the common statement used by analysts, and you will be learning all about them throughout this course!
+## SELECT, WHERE,ORDER BY, LIMIT
+- **The SELECT statement →** is used to select data from a database. The data returned is stored in a result table, called the result-set.   
+
+- **LIMIT →**  to select a limited number of records
+
+- **ORDER BY →** used to sort the result-set in ascending or descending order. The ORDER BY keyword sorts the records in ascending order by default.  
+
+- **WHERE →** he WHERE clause is used to filter records. It is used to extract only those records that fulfill a specified condition.  
 
 ### Code Example
 
 selecting column from table
 ``` sql
-  SELECT column
+  SELECT column1, column2, total, names
   FROM table 
+  WHERE total < 500
+  WHERE names == 'ahmed'
+  ORDER BY column2 DESC
+  LIMIT 15;
 ```
+
 
 
  
