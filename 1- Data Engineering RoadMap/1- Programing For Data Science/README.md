@@ -28,6 +28,6 @@ You must be familiar with using a computer, and prior coding experience is prefe
 
 ## From Where You Can Buy The Full Course 🙅‍♂️
 This is only to inform you that this is only my Studying Progress Notes So For Enrolling the Full Original Professional Course You Can find it Below : 
-- [@UDACITY Programming For Data Science Nanodegree](https://www.github.com/octokatherine)
+- [@UDACITY Programming For Data Science Nanodegree]([https://www.github.com/octokatherine](https://www.udacity.com/course/programming-for-data-science-nanodegree--nd104)
 
 Note → This is Not Sponsered by **UDACITY** it's Only My Efforts For Summarizing WHat I Studied before even From UDACITY or From an External Sourcr 
