@@ -329,7 +329,10 @@ WHERE o.total IS NULL;
 
 # Window Function 
 In SQL, window functions operate on a set of rows called a window frame. They return a single value for each row from the underlying query.
-### What is the differance between Window Func & Aggregation
+### What is the differance between Window Func & Aggregation ?
+![alt text](https://i.ibb.co/JsVfp5v/SQLite-window-function-vs-aggregate-function.png)
+
+
 
  - [Check this Article](https://learnsql.com/blog/window-functions-vs-aggregate-functions/)
 #### Example 
