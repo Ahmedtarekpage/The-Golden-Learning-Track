@@ -65,13 +65,22 @@ selecting column from table
 ``` sql
   SELECT column1, column2, total, names
   FROM table 
-  WHERE total < 500
+  WHERE total < 500 AND  total > 50
   WHERE names == 'ahmed'
+  WHERE name IN ('Walmart', 'Target', 'Nordstrom');
+  WHERE name LIKE 'C%';   
+  WHERE name NOT LIKE '%one%';  
+  WHERE name LIKE '%s';
   ORDER BY column2 DESC
   LIMIT 15;
 ```
+## Arithmetic Operators
+``` sql
+SELECT id, account_id, standard_amt_usd/standard_qty AS unit_price
+FROM orders
+LIMIT 10;
 
-
+```
 
  
     
