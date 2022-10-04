@@ -276,3 +276,54 @@ ON t1.region_name = t2.region_name AND t1.total_amt = t2.total_amt;
 
 ``` 
 # Data Cleaning 
+### LEFT & RIGHT Solutions
+### Example 1
+``` sql
+SELECT RIGHT(website, 3) AS domain, COUNT(*) num_companies
+FROM accounts
+GROUP BY 1
+ORDER BY 2 DESC;
+
+
+``` 
+### Example 2
+``` sql
+SELECT LEFT(primary_poc, STRPOS(primary_poc, ' ') -1 ) first_name, 
+   RIGHT(primary_poc, LENGTH(primary_poc) - STRPOS(primary_poc, ' ')) last_name
+FROM accounts;
+
+
+
+
+``` 
+### POSITION, STRPOS, & SUBSTR Solutions
+``` sql
+WITH t1 AS (
+    SELECT LEFT(primary_poc,     STRPOS(primary_poc, ' ') -1 ) first_name,  RIGHT(primary_poc, LENGTH(primary_poc) - STRPOS(primary_poc, ' ')) last_name, name
+    FROM accounts)
+SELECT first_name, last_name, CONCAT(first_name, '.', last_name, '@', name, '.com')
+FROM t1;
+
+``` 
+
+### CONCAT
+``` sql
+WITH t1 AS (
+    SELECT LEFT(primary_poc,     STRPOS(primary_poc, ' ') -1 ) first_name,  RIGHT(primary_poc, LENGTH(primary_poc) - STRPOS(primary_poc, ' ')) last_name, name
+    FROM accounts)
+SELECT first_name, last_name, CONCAT(first_name, '.', last_name, '@', name, '.com')
+FROM t1;
+``` 
+
+### COALESCE
+The COALESCE function returns the first non-NULL value from a series of expressions. The expressions are evaluated in the order in which they are specified, and the result of the function is the first value that is not null. The result of the COALESCE function returns NULL only if all the arguments are null.
+
+``` sql
+SELECT COALESCE(a.id, a.id) filled_id, a.name, a.website, a.lat, a.long, a.primary_poc, a.sales_rep_id, o.*
+FROM accounts a
+LEFT JOIN orders o
+ON a.id = o.account_id
+WHERE o.total IS NULL;
+``` 
+
+
